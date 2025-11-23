@@ -32,3 +32,22 @@ Zabezpieczenie przed nieautoryzowanymi zmianami. Wymusza potwierdzenie (lub has�
 
 ### BitLocker
 Pełne szyfrowanie dysku. Chroni dane w przypadku fizycznej kradzieży urządzenia.
+---
+## 4. Active Directory (AD) - Wstęp do Korporacji
+
+Active Directory to baza danych i zestaw usług łączących użytkowników i komputery w jedną sieć (Domenę).
+
+### Kluczowe Różnice
+* **Konto Lokalne:** Działa tylko na jednym komputerze (np. `.\phillip`).
+* **Konto Domenowe:** Działa w całej firmie (np. `THM\phillip`).
+    * *Wniosek:* Logując się przez RDP, zawsze muszę podać domenę (flaga `/d:THM`).
+
+### Struktura AD (Drzewo)
+* **Kontener (Containers):** Domyślne foldery (np. `Users`, `Computers`). Nie można do nich przypisywać Polityk Grupowych (GPO).
+* **Jednostka Organizacyjna (OU):** Specjalne foldery (np. `Marketing`, `Serwery`), które tworzy administrator. **To tutaj nakłada się polityki bezpieczeństwa** (np. blokada USB, tapeta firmowa).
+
+### Narzędzia Hakerskie (Linux -> Windows)
+* **xfreerdp3**: Klient RDP na Linuxa.
+    * Komenda: `xfreerdp3 /v:IP /u:user /p:pass /d:DOMAIN /dynamic-resolution /cert:ignore`
+* **PowerShell (runas)**: Uruchamianie komend jako inny użytkownik wewnątrz systemu.
+    * `runas /user:użytkownik powershell`
