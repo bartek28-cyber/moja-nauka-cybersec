@@ -80,3 +80,18 @@ Dlaczego nie zawsze używamy przeglądarki?
 * Przeglądarka ukrywa surowe nagłówki i "upiększa" odpowiedź.
 * W pentestach musimy widzieć dokładnie, co serwer odsyła (wersja oprogramowania, błędy).
 * Telnet pozwala wysłać surowe żądanie: `GET / HTTP/1.1` (wymaga podwójnego Entera na końcu!).
+
+
+## 1. Ping (ICMP)
+Służy do sprawdzania, czy host jest osiągalny.
+* **Zasada:** Używa protokołu ICMP (Echo Request / Echo Reply).
+* **Pułapka:** Sukces Pingu nie oznacza, że usługi (np. WWW, SSH) działają. Porażka Pingu nie oznacza, że serwer nie żyje (Firewall może blokować ICMP, ale przepuszczać TCP).
+
+## 2. Traceroute / Tracert
+Pokazuje ścieżkę pakietu przez routery (skoki/hopki) do celu.
+* **Gwiazdki (* * *):** Oznaczają, że router po drodze działa (przekazuje ruch), ale jest skonfigurowany tak, aby nie odpowiadać na pakiety diagnostyczne (dla bezpieczeństwa lub wydajności).
+
+## 3. Whois
+Baza danych właścicieli domen.
+* **Zastosowanie w Security:** Weryfikacja phishingu.
+* **Red Flag:** Jeśli domena podszywająca się pod bank/korporację ma w polu właściciela "Privacy Protect" lub "Redacted for Privacy" zamiast nazwy firmy – to prawdopodobnie oszustwo.
