@@ -74,3 +74,9 @@ To "ochroniarz" sieci. Decyduje, co może wejść, a co wyjść.
 ### 2. Port Forwarding (Przekierowanie Portów)
 Mechanizm pozwalający na dostęp do usługi wewnątrz sieci lokalnej (LAN) z publicznego Internetu.
 * **Ryzyko:** Otwierając port na routerze, robimy "dziurę w murze". Jeśli usługa za tym portem ma podatności, haker wchodzi prosto do sieci domowej.
+
+* ### Ręczne zapytania HTTP (Telnet/Netcat)
+Dlaczego nie zawsze używamy przeglądarki?
+* Przeglądarka ukrywa surowe nagłówki i "upiększa" odpowiedź.
+* W pentestach musimy widzieć dokładnie, co serwer odsyła (wersja oprogramowania, błędy).
+* Telnet pozwala wysłać surowe żądanie: `GET / HTTP/1.1` (wymaga podwójnego Entera na końcu!).
