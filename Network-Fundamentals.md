@@ -95,3 +95,26 @@ Pokazuje ścieżkę pakietu przez routery (skoki/hopki) do celu.
 Baza danych właścicieli domen.
 * **Zastosowanie w Security:** Weryfikacja phishingu.
 * **Red Flag:** Jeśli domena podszywająca się pod bank/korporację ma w polu właściciela "Privacy Protect" lub "Redacted for Privacy" zamiast nazwy firmy – to prawdopodobnie oszustwo.
+
+
+
+---
+
+## 🛡️ Secure Protocols & Traffic Analysis (Practical Lessons)
+
+### 1. Analiza ruchu: Plaintext vs Encrypted
+* **Telnet / FTP / HTTP:**
+    * Przesyłają dane (w tym loginy i hasła) otwartym tekstem.
+    * W Wiresharku łatwo je przechwycić używając opcji "Follow TCP Stream".
+* **SSH / HTTPS (TLS):**
+    * Ruch jest w pełni szyfrowany.
+    * W Wiresharku widzimy tylko "Encrypted Packet". Bez klucza prywatnego nie da się podejrzeć treści transmisji .
+
+### 2. CTF Tip: HTTP POST & URL Encoding
+Podczas analizy formularzy (metoda POST) w Wiresharku:
+* **Problem:** Przeglądarki kodują znaki specjalne w formacie URL Encoding (np. `%7B` zamiast `{`, `%20` zamiast spacji), co utrudnia czytanie "gołym okiem".
+* **Rozwiązanie:**
+    1.  Skopiuj wartość pola z Wiresharka (np. `param=...`).
+    2.  Użyj **CyberChef** z filtrem `URL Decode`.
+    3.  Dopiero zdekodowany ciąg wpisuj jako odpowiedź/flagę.
+    *Lekcja wyciągnięta na błędzie przy fladze `THM{...}`.*
