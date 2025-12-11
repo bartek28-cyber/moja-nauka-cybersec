@@ -120,7 +120,7 @@ Podczas analizy formularzy (metoda POST) w Wiresharku:
     *Lekcja wyciągnięta na błędzie przy fladze `THM{...}`.*
 
 
-## Wireshark - Packet Navigation & Stream Analysis (TryHackMe)
+## Wireshark - Packet Navigation & Stream Analysis
 
 **Zadanie: Znalezienie ukrytych danych w strumieniu HTTP**
 * **Problem:** Znalezienie konkretnych informacji (np. listy artystów) ukrytych w kodzie HTML przesyłanym przez sieć, a nie w samych nagłówkach pakietów.
