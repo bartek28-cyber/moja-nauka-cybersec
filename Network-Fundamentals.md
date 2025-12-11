@@ -118,3 +118,20 @@ Podczas analizy formularzy (metoda POST) w Wiresharku:
     2.  Użyj **CyberChef** z filtrem `URL Decode`.
     3.  Dopiero zdekodowany ciąg wpisuj jako odpowiedź/flagę.
     *Lekcja wyciągnięta na błędzie przy fladze `THM{...}`.*
+
+
+## Wireshark - Packet Navigation & Stream Analysis (TryHackMe)
+
+**Zadanie: Znalezienie ukrytych danych w strumieniu HTTP**
+* **Problem:** Znalezienie konkretnych informacji (np. listy artystów) ukrytych w kodzie HTML przesyłanym przez sieć, a nie w samych nagłówkach pakietów.
+* **Rozwiązanie:** Użycie funkcji **Follow HTTP Stream**. Pozwala ona zobaczyć "złożoną" stronę internetową tak, jak widzi ją przeglądarka (lub surowy kod HTML), zamiast pojedynczych pakietów.
+
+**Kroki (Walkthrough):**
+1.  Zlokalizuj pakiet z żądaniem HTTP (np. pakiet nr `33790`).
+2.  Prawy przycisk myszy -> **Follow** -> **HTTP Stream**.
+3.  W nowym oknie przeanalizuj kod HTML (kolor niebieski to odpowiedź serwera).
+4.  Szukaj interesujących danych wewnątrz tagów (np. `<select>`, `<li>`, komentarze HTML).
+
+**Przykład z zadania:**
+* Szukano: Imienia drugiego artysty na liście.
+* Znaleziono w tagu: `<option value="2">Blad3</option>` .
