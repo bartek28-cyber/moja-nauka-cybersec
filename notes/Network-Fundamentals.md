@@ -120,32 +120,4 @@ Podczas analizy formularzy (metoda POST) w Wiresharku:
     *Lekcja wyciągnięta na błędzie przy fladze `THM{...}`.*
 
 
-## Wireshark - Packet Navigation & Stream Analysis
 
-**Zadanie: Znalezienie ukrytych danych w strumieniu HTTP**
-* **Problem:** Znalezienie konkretnych informacji (np. listy artystów) ukrytych w kodzie HTML przesyłanym przez sieć, a nie w samych nagłówkach pakietów.
-* **Rozwiązanie:** Użycie funkcji **Follow HTTP Stream**. Pozwala ona zobaczyć "złożoną" stronę internetową tak, jak widzi ją przeglądarka (lub surowy kod HTML), zamiast pojedynczych pakietów.
-
-**Kroki (Walkthrough):**
-1.  Zlokalizuj pakiet z żądaniem HTTP (np. pakiet nr `33790`).
-2.  Prawy przycisk myszy -> **Follow** -> **HTTP Stream**.
-3.  W nowym oknie przeanalizuj kod HTML (kolor niebieski to odpowiedź serwera).
-4.  Szukaj interesujących danych wewnątrz tagów (np. `<select>`, `<li>`, komentarze HTML).
-
-**Przykład z zadania:**
-* Szukano: Imienia drugiego artysty na liście.
-* Znaleziono w tagu: `<option value="2">Blad3</option>` .
-
-  # 🦈 Tcpdump Cheat Sheet 
-
-`tcpdump` to podstawowe narzędzie analityka do przechwytywania i analizy pakietów w terminalu.
-
-## 1. Podstawowa Składnia
-Pamiętaj: Linux rozróżnia wielkość liter! Protokoły zawsze małymi literami (`tcp`, `udp`, `icmp`).
-
-```bash
-# Nasłuchiwanie na interfejsie (wymaga roota)
-sudo tcpdump -i eth0
-
-# Czytanie z pliku .pcap (analiza offline)
-sudo tcpdump -r traffic.pcap
