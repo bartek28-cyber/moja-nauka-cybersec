@@ -135,3 +135,17 @@ Podczas analizy formularzy (metoda POST) w Wiresharku:
 **Przykład z zadania:**
 * Szukano: Imienia drugiego artysty na liście.
 * Znaleziono w tagu: `<option value="2">Blad3</option>` .
+
+  # 🦈 Tcpdump Cheat Sheet 
+
+`tcpdump` to podstawowe narzędzie analityka do przechwytywania i analizy pakietów w terminalu.
+
+## 1. Podstawowa Składnia
+Pamiętaj: Linux rozróżnia wielkość liter! Protokoły zawsze małymi literami (`tcp`, `udp`, `icmp`).
+
+```bash
+# Nasłuchiwanie na interfejsie (wymaga roota)
+sudo tcpdump -i eth0
+
+# Czytanie z pliku .pcap (analiza offline)
+sudo tcpdump -r traffic.pcap
