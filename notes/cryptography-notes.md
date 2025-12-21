@@ -45,7 +45,7 @@ hashcat -m 1400 -a 0 hash2.txt /usr/share/wordlists/rockyou.txt
 
 # SHA-512 Unix ($6$)
 hashcat -m 1800 -a 0 hash3.txt /usr/share/wordlists/rockyou.txt
-
+'''
 # 🕵️‍♂️ John the Ripper (JtR) - Pentester's Cheatsheet
 
 > **Opis:** John the Ripper to narzędzie do łamania haseł offline. Obsługuje setki formatów haszy, w tym hasła systemowe (Linux/Windows), archiwa, klucze SSH i portfele krypto.
